@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>^ . ^</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="icon" href="src/boykisser.png">
+    
+</head>
+<body>
+    <main>
+        <div class="bigclikclikbox" onclick="remove_bigclikclikbox(this)">
+            <span>click anywhere</span>
+        </div>
+        <div class="allboxescontainer">
+                <div class="mainbox" id="mainbox">
+                    <div class="bio">
+                        <div class="pfp">
+                            <img src="src/pfp.jpg" alt="">
+                        </div>
+                        <h1>Velocity</h1>
+                        <p>⋆ ---––——––--- ⋆<br>hai, you can also call me velo/vel if you want!!:><br>im pretty boring and often annoying, not much else to say (´ω｀*)<br>⋆ ---––——––--- ⋆</p>
+                    
+                    </div>
+                    <div class="btn-container">
+                        <button onclick="openinterests()">interests</button>
+                        <button onclick="openlikesdislikes()">likes/dislikes</button>
+                        <!-- <button onclick="opensocials()">socials</button> -->
+                    </div>
+                </div>
+                
+                <div class="interests" id="interests">
+                    <div class="box">
+                        <!-- interests -->
+                        <h1>My interests</h1>
+                        <p>my interests</p>
+
+                    </div>
+                    <button class="close-btn" onclick="return_to_main_box()"><i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+                
+                <div class="likes-dislikes" id="likes-dislikes">
+                    <div class="box">
+                        <!-- likes/dislikes -->
+                        <h1>Likes/Dislikes</h1>
+                        <p>what i like/dislike</p>
+
+                    </div>
+                    <button class="close-btn" onclick="return_to_main_box()"><i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+
+                <!-- <div class="socials" id="socials">
+                    <div class="box">
+                        
+                        <h1>Socials</h1>
+                        <p>my socials</p>
+                        <ul>
+                            <li><a href="#"><i class="fa-brands fa-discord"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+                        </ul>
+
+                    </div>
+                    <button class="close-btn" onclick="return_to_main_box()"><i class="fa-solid fa-arrow-left"></i></button>
+                </div> -->
+        </div>
+        <span class="songname">currently playing: home - toby fox | cover by justinlymusic</span>
+        <span class="creatorcredit">website made by mexa</span>
+        
+    </main>
+    <audio src="src/Undertale acoustic guitar - His Theme.mp3" id="his-theme"></audio>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>
