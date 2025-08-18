@@ -23,7 +23,12 @@ main {
     --color4: #556589;
     --color5: #262E43;
     --color6: rgba(50, 63, 85, 0.5);
+    --color7: #b5bfd4;
 
+    --boxwidth: 50vw;
+    --boxheight: 60vh;
+    --maxboxwidth: 800px;
+    --maxboxheight: 600px;
 }
 
 
@@ -36,11 +41,16 @@ main {
         display: flex;
         flex-direction: column;
         gap: 20px;
+        width: var(--boxwidth);
+        height: var(--boxheight);
+        max-width: var(--maxboxwidth);
+        max-height: var(--maxboxheight);
+        
         .bio {
+            height: 100%;
+            width: 100%;
             z-index: 1;
             padding: 60px 15px;
-            width: 800px;
-            height: 600px;
             background-color: var(--color6);
             border-radius: 15px;
             transition: 0.5s;
@@ -51,9 +61,9 @@ main {
             flex-direction: column;
     
             .pfp {
-                width: 150px;
-                height: 150px;
-                border-radius: 100px;
+                height: 20%;
+                aspect-ratio: 1/1;
+                border-radius: 1000px;
     
                 box-shadow: 0px 0px 20px 10px var(--color1);
     
@@ -66,26 +76,25 @@ main {
             }
     
             h1 {
-                color: var(--color2);
+                color: #ffffff;
                 margin-top: 10px;
                 font-size: 42px;
                 transition: 0.3s;
     
             }
             h1:hover {
-                color: var(--color5);
+                color: var(--color7);
             }
             p {
-                font-family: "Figtree", sans-serif;
                 margin-top: 30px;
                 font-size: 24px;
                 text-align: center;
-                width: 600px;
+                width: 80%;
                 transition: 0.3s;
-                color: var(--color2);
+                color: #ffffff;
             }
             p:hover {
-                color: var(--color5);
+                color: var(--color7);
             }
         }
     
@@ -97,7 +106,7 @@ main {
     
     
         .btn-container {
-            width: 800px;
+            width: 100%;
             height: min-content;
             display: flex;
             gap: 20px;
@@ -111,7 +120,7 @@ main {
                 transition: 0.5s;
                 background-color: var(--color6);
                 backdrop-filter: blur(10px);
-                color: var(--color2);
+                color: #ffffff;
                 box-shadow: 0px 0px 50px 5px var(--color2);
     
                 z-index: 2;
@@ -137,8 +146,13 @@ main {
         transition: 0.5s ease-in-out;
         display: flex;
         gap: 15px;
-        button {
-            width: 50px;
+        width: var(--boxwidth);
+        height: var(--boxheight);
+        max-width: var(--maxboxwidth);
+        max-height: var(--maxboxheight);
+        
+        .close-btn {
+            min-width: 50px;
             height: 50px;
             margin-top: 20px;
             z-index: 2;
@@ -147,7 +161,7 @@ main {
             background-color: var(--color6);
             backdrop-filter: blur(10px);
             box-shadow: 0px 0px 50px 5px var(--color2);
-            color: var(--color2);
+            color: #ffffff;
             outline: none;
             border: none;
             transition: 0.5s;
@@ -162,8 +176,8 @@ main {
         .box {
             z-index: 1;
             padding: 60px 15px;
-            width: 800px;
-            height: 600px;
+            width: 100%;
+            height: 100%;
             background-color: var(--color6);
             border-radius: 15px;
             box-shadow: 0px 0px 50px 5px var(--color2);
@@ -187,27 +201,25 @@ main {
             }
     
             h1 {
-                font-family: "Ubuntu Mono", monospace;
-                color: var(--color2);
+                color: #ffffff;
                 margin-top: 10px;
                 font-size: 42px;
                 transition: 0.3s;
     
             }
             h1:hover {
-                color: var(--color5);
+                color: var(--color7);
             }
             p {
-                font-family: "Figtree", sans-serif;
                 margin-top: 30px;
                 font-size: 24px;
                 text-align: center;
                 width: 600px;
                 transition: 0.3s;
-                color: var(--color2);
+                color: #ffffff;
             }
             p:hover {
-                color: var(--color5);
+                color: var(--color7);
             }
         }
     }
@@ -233,31 +245,73 @@ main {
     justify-content: center;
     cursor: pointer;
     span {
-        width: 700px;
         height: 100px;
         font-size: 70px;
         color: #ffffff;
         text-align: center;
         user-select: none;
-        cursor: default;
     }
 }
 .bigclikclikbox.hidden {
     opacity: 0;
     pointer-events: none;
 }
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
 
-.songname {
+.music {
     position: fixed;
-    color: var(--color2);
     top: 10px;
     right: 10px;
-    cursor: default;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .currently-playing {
+        color: #ffffff;
+        cursor: default;
+        .songname {
+            color: var(--color2);
+        }
+        .spinning-vinyl {
+            animation: spin 2s linear infinite;
+        }
+    }
+    .music-controls {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+
+        .music-btn {
+            background-color: var(--color6);
+            color: #ffffff;
+            font-size: 32px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 5px;
+            transition: 0.5s;
+            i.dissapear {
+                display: none;
+            }
+        }
+        .music-btn:hover {
+            transform: scale(110%);
+        }
+        .music-btn:active {
+            transform: scale(90%);
+        }
+    }
 }
 
 .creatorcredit {
     position: fixed;
-    color: var(--color2);
+    color: #ffffff;
     bottom: 10px;
     left: 10px;
     cursor: default;
@@ -265,4 +319,35 @@ main {
     backdrop-filter: blur(1px);
     padding: 5px;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 785px) {
+    :root {
+        --boxwidth: 90vw
+    }
+
+    .interests, .likes-dislikes, .socials {
+        button {
+            
+            transform: translateX(-100px);
+            aspect-ratio: 1/1;
+        }
+        button:hover {
+            transform: translateX(-100px) !important; 
+
+        }
+        button:active {
+            transform: translateX(-100px) !important; 
+        }
+    }
+
+    .bigclikclikbox {
+        span {
+            font-size: 50px;
+        }
+    }
+
+    .allboxescontainer .mainbox .bio:hover {
+        transform: none;
+    }
 }

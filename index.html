@@ -74,11 +74,23 @@
                     <button class="close-btn" onclick="return_to_main_box()"><i class="fa-solid fa-arrow-left"></i></button>
                 </div> -->
         </div>
-        <span class="songname">currently playing: home - toby fox | cover by justinlymusic</span>
+
+        <div class="music">
+            <span class="currently-playing">currently playing: <span class="songname" id="songname">nothing</span> <i class="spinning-vinyl fa-solid fa-compact-disc"></i></span>
+            <div class="music-controls">
+                <button class="music-btn" onclick="music_previous()"><i class="fa-solid fa-backward"></i></button>
+                <button class="music-btn" onclick="music_pause()"><i class="fa-solid fa-pause"></i><i class="dissapear fa-solid fa-play"></i></button>
+                <button class="music-btn" onclick="music_next()"><i class="fa-solid fa-forward"></i></button>
+            </div>
+        </div>
+
         <span class="creatorcredit">website made by mexa</span>
         
     </main>
-    <audio src="src/Undertale acoustic guitar - His Theme.mp3" id="his-theme"></audio>
+    <audio src="src/clik.mp3" id="clik"></audio>
+    <audio src="src/use_totem.ogg" id="meow"></audio>
+    <audio src="src/home - toby fox | cover by justinlymusic.mp3" id="his-theme"></audio>
+    <audio src="src/Is It Just Me - key vs locket.mp3" id="is-it-just-me"></audio>
     <script src="scripts/scripts.js"></script>
 </body>
 </html>
