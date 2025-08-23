@@ -45,7 +45,79 @@ main {
         height: var(--boxheight);
         max-width: var(--maxboxwidth);
         max-height: var(--maxboxheight);
+
+        .music {
+            transition: 0.5s;
+            box-shadow: 0px 0px 50px 5px var(--color2);
         
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--color6);
+            padding: 10px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            
+            .currently-playing {
+                color: #ffffff;
+                cursor: default;
+                text-align: center;
+                .songname {
+                    color: var(--color7);
+                }
+                .spinning-vinyl {
+                    animation: spin 2s linear infinite;
+                }
+            }
+            .music-controls {
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                
+                .music-btn {
+                    background-color: var(--color6);
+                    color: #ffffff;
+                    font-size: 32px;
+                    border: none;
+                    outline: none;
+                    border-radius: 10px;
+                    padding: 5px;
+                    transition: 0.5s;
+                    i.dissapear {
+                        display: none;
+                    }
+                }
+                .music-btn:hover {
+                    transform: scale(110%);
+                    cursor: pointer;
+                }
+                .music-btn:active {
+                    transform: scale(90%);
+                }
+
+                .pause-btn {
+                    .fa-play {
+                        display: block;
+                    }
+                    .fa-pause {
+                        display: none;
+                    }   
+                }
+
+                .pause-btn.paused {
+                    .fa-play {
+                        display: none;
+                    }
+                    .fa-pause {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .music:hover {
+            transform: scale(102%);
+
+        }
         .bio {
             height: 100%;
             width: 100%;
@@ -265,49 +337,7 @@ main {
     }
 }
 
-.music {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    .currently-playing {
-        color: #ffffff;
-        cursor: default;
-        .songname {
-            color: var(--color2);
-        }
-        .spinning-vinyl {
-            animation: spin 2s linear infinite;
-        }
-    }
-    .music-controls {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
 
-        .music-btn {
-            background-color: var(--color6);
-            color: #ffffff;
-            font-size: 32px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            padding: 5px;
-            transition: 0.5s;
-            i.dissapear {
-                display: none;
-            }
-        }
-        .music-btn:hover {
-            transform: scale(110%);
-        }
-        .music-btn:active {
-            transform: scale(90%);
-        }
-    }
-}
 
 .creatorcredit {
     position: fixed;
@@ -347,7 +377,19 @@ main {
         }
     }
 
-    .allboxescontainer .mainbox .bio:hover {
-        transform: none;
+    .allboxescontainer {
+        margin-top: 5vh;
+    }
+
+    .mainbox {
+        height: calc(var(--boxheight) - 10vh) !important;
+    }
+
+    *:hover {
+        transform: none !important;
+    }
+
+    .bio {
+        padding: 10px 15px !important;
     }
 }

@@ -25,6 +25,15 @@
         </div>
         <div class="allboxescontainer">
                 <div class="mainbox" id="mainbox">
+                    <div class="music">
+                        <span class="currently-playing">currently playing: <span class="songname" id="songname">nothing</span> <i class="spinning-vinyl fa-solid fa-compact-disc"></i></span>
+                        <div class="music-controls">
+                            <button class="music-btn" onclick="music_previous()"><i class="fa-solid fa-backward-step"></i></button>
+                            <button class="music-btn pause-btn paused" onclick="music_pause(this)"><i class="fa-solid fa-pause"></i><i class="fa-solid fa-play"></i></button>
+                            <button class="music-btn" onclick="music_next()"><i class="fa-solid fa-forward-step"></i></button>
+                        </div>
+                    </div>
+                    
                     <div class="bio">
                         <div class="pfp">
                             <img src="src/pfp.jpg" alt="">
@@ -75,14 +84,7 @@
                 </div> -->
         </div>
 
-        <div class="music">
-            <span class="currently-playing">currently playing: <span class="songname" id="songname">nothing</span> <i class="spinning-vinyl fa-solid fa-compact-disc"></i></span>
-            <div class="music-controls">
-                <button class="music-btn" onclick="music_previous()"><i class="fa-solid fa-backward"></i></button>
-                <button class="music-btn" onclick="music_pause()"><i class="fa-solid fa-pause"></i><i class="dissapear fa-solid fa-play"></i></button>
-                <button class="music-btn" onclick="music_next()"><i class="fa-solid fa-forward"></i></button>
-            </div>
-        </div>
+
 
         <span class="creatorcredit">website made by mexa</span>
         
