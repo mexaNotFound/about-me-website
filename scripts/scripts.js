@@ -3,15 +3,27 @@ let interests = document.getElementById("interests")
 let likesDislikes = document.getElementById("likes-dislikes")
 // let socials = document.getElementById("socials")
 
-let audios = [
-    document.getElementById("is-it-just-me"),
-    document.getElementById("his-theme")
-]
+let progressbarline = document.getElementById("progressbarline")
+let progressbarFullLine = document.getElementById("progressbar-full-line")
+
+let songname = document.getElementById("songname")
 
 let meow = document.getElementById("meow")
 let clik = document.getElementById("clik")
 
-let songname = document.getElementById("songname")
+
+
+
+
+let audios = [
+    document.getElementById("is-it-just-me"),
+    document.getElementById("his-theme")
+]
+let typewriter_strings = ["about me! ^.^", "@velocitymeow"]
+
+
+
+
 
 let currentIndex = 0;
 let current_audio = audios[currentIndex];
@@ -65,7 +77,7 @@ function music_pause(pause_btn) {
 function remove_bigclikclikbox(ts) {
     meow.play();
     playCurrent();
-    typewriter_animate(["about me! ^.^", "@velocitymeow"]);
+    typewriter_animate(typewriter_strings);
     ts.classList.add("hidden");
 }
 
@@ -115,6 +127,8 @@ async function typewriter_clear() {
     }
 }
 
+const elementPageX = (elem) => window.pageXOffset + elem.getBoundingClientRect().left
+
 async function typewriter_animate(list){
     while (true) {
         for (let index = 0; index < list.length; index++) {
@@ -126,3 +140,31 @@ async function typewriter_animate(list){
         }
     }
 }
+
+
+function update_progressbar(progress) {
+    progressbarline.style.width = `${progress}%`
+}
+
+
+async function progressbar() {
+    while (true) {
+        current_audio = audios[currentIndex]
+        song_percentage = (current_audio.currentTime / current_audio.duration) * 100
+        update_progressbar(song_percentage)
+        await sleep(1000)
+    }
+}
+
+
+
+
+progressbarFullLine.addEventListener("click", (event) => {
+    current_audio = audios[currentIndex]
+    song_percentage = Math.max(Math.min((event.pageX - elementPageX(progressbarFullLine)) / progressbarFullLine.offsetWidth * 100, 100), 0)
+    current_audio.currentTime = (song_percentage / 100) * current_audio.duration
+    update_progressbar(song_percentage)
+});
+
+
+progressbar()
