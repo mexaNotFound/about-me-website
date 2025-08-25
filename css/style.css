@@ -97,26 +97,26 @@ main {
 
                 .pause-btn {
                     .fa-play {
-                        display: block;
+                        display: none;
                     }
                     .fa-pause {
-                        display: none;
+                        display: block;
                     }   
                 }
 
                 .pause-btn.paused {
                     .fa-play {
-                        display: none;
+                        display: block;
                     }
                     .fa-pause {
-                        display: block;
+                        display: none;
                     }
                 }
             }
 
             .progressbar {
+                padding: 20px 0;
                 width: 100%;
-                height: 30px;
                 display: flex;
                 justify-content: center;
 
@@ -134,7 +134,7 @@ main {
                         .ball {
                             position: absolute;
                             top: 0;
-                            right: 0px;
+                            right: -2.5px;
 
                             height: 10px;
                             aspect-ratio: 1/1;
@@ -149,6 +149,9 @@ main {
                 .fullline:hover .line .ball {
                     transform: scale(150%);
                 }
+                .fullline:active .line .ball {
+                    transform: scale(150%);
+                }
             }
         }
         .music:hover {
@@ -156,7 +159,6 @@ main {
 
         }
         .bio {
-            height: 100%;
             width: 100%;
             z-index: 1;
             padding: 60px 15px;
@@ -168,9 +170,20 @@ main {
             display: flex;
             align-items: center;
             flex-direction: column;
-    
+            &::-webkit-scrollbar {
+                width: 10px;
+                background: var(--color5);
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: var(--color3);
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background: var(--color4);
+            }
             .pfp {
-                height: 20%;
+                height: 200px;
                 aspect-ratio: 1/1;
                 border-radius: 1000px;
     
@@ -199,6 +212,7 @@ main {
                 font-size: 24px;
                 text-align: center;
                 width: 80%;
+                height: 100%;
                 transition: 0.3s;
                 color: #ffffff;
             }
@@ -295,8 +309,9 @@ main {
             align-items: center;
             flex-direction: column;
             .pfp {
-                width: 150px;
-                height: 150px;
+                
+                min-width: 150px;
+                min-height: 150px;
                 border-radius: 100px;
     
                 box-shadow: 0px 0px 20px 10px var(--color1);
@@ -401,16 +416,13 @@ main {
         }
         button:hover {
             transform: translateX(-100px) !important; 
-
         }
         button:active {
             transform: translateX(-100px) !important; 
         }
     }
 
-    *:hover {
-        transform: none;
-    }
+
     .bigclikclikbox {
         span {
             font-size: 50px;
@@ -425,11 +437,41 @@ main {
         height: calc(var(--boxheight) - 10vh) !important;
     }
 
-    *:hover {
-        transform: none !important;
-    }
+
 
     .bio {
         padding: 10px 15px !important;
+    }
+}
+
+@media (hover: none) {
+    .music:hover,
+    .bio:hover,
+    button:hover,
+    .music-btn:hover,
+    .fullline:hover .line .ball {
+        transform: none !important;
+    }
+}
+
+@media screen and (max-height: 1000px) {
+    .allboxescontainer {
+        margin-top: 5vh;
+        .mainbox {
+            .music {
+                padding: 5px !important;
+                gap: 10px !important;
+            }
+            .bio {
+                padding: 10px 15px !important;
+                .pfp {
+                    position: absolute !important;
+                    top: 10px;
+                    left: 10px;
+                    height: 50px !important;
+
+                }
+            }
+        }
     }
 }

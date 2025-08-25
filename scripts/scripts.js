@@ -11,6 +11,7 @@ let songname = document.getElementById("songname")
 let meow = document.getElementById("meow")
 let clik = document.getElementById("clik")
 
+let pausebtn = document.getElementById("pausebtn")
 
 
 
@@ -56,17 +57,27 @@ function stop_playback() {
 }
 
 function music_previous() {
+    update_progressbar(0);
     currentIndex = (currentIndex - 1 + audios.length) % audios.length;
+    if (pausebtn.classList.contains("paused")) {
+        pausebtn.classList.remove("paused");
+    }
+    current_audio.currentTime = 0;
     playCurrent();
 }
 
 function music_next() {
+    update_progressbar(0);
+
     currentIndex = (currentIndex + 1) % audios.length;
+    if (pausebtn.classList.contains("paused")) {
+        pausebtn.classList.remove("paused");
+    }
+    current_audio.currentTime = 0;
     playCurrent();
 }
 
 function music_pause(pause_btn) {
-    pause_btn.classList.toggle("paused");
     if (current_audio.paused) {
         current_audio.play();
     } else {
@@ -159,11 +170,43 @@ async function progressbar() {
 
 
 
-progressbarFullLine.addEventListener("click", (event) => {
-    current_audio = audios[currentIndex]
+progressbarFullLine.addEventListener("mousedown", (event) => {
+    dragging = true;
     song_percentage = Math.max(Math.min((event.pageX - elementPageX(progressbarFullLine)) / progressbarFullLine.offsetWidth * 100, 100), 0)
     current_audio.currentTime = (song_percentage / 100) * current_audio.duration
     update_progressbar(song_percentage)
+
+    music_pause(pausebtn)
+});
+
+dragging = false;
+
+document.addEventListener("mouseup", (event) => {
+    if (dragging) {
+        dragging = false;
+        music_pause(pausebtn)
+
+    }
+});
+
+document.addEventListener("mousemove", (event) => {
+    if (dragging) {
+        song_percentage = Math.max(Math.min((event.pageX - elementPageX(progressbarFullLine)) / progressbarFullLine.offsetWidth * 100, 100), 0)
+        current_audio.currentTime = (song_percentage / 100) * current_audio.duration
+        update_progressbar(song_percentage)
+}});
+
+
+audios.forEach(audio => {
+    audio.addEventListener("pause", (event) => {
+        pausebtn.classList.add("paused");
+    });
+});
+
+audios.forEach(audio => {
+    audio.addEventListener("play", (event) => {
+        pausebtn.classList.remove("paused");
+    });
 });
 
 
