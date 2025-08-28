@@ -258,11 +258,13 @@ main {
         }
     }
     .mainbox.hidden {
-        transform: translateX(-100vw);
+        transform: translateX(-50vw);
+        opacity: 0;
     }
     
     .interests, .likes-dislikes, .socials {
-        transform: translateX(100vw);
+        opacity: 0;
+        transform: translateX(50vw);
         position: absolute;
         top: 0;
         left: 0;
@@ -350,6 +352,7 @@ main {
 
     .interests.active, .likes-dislikes.active, .socials.active {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
