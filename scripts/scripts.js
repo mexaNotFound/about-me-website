@@ -176,7 +176,9 @@ progressbarFullLine.addEventListener("mousedown", (event) => {
     current_audio.currentTime = (song_percentage / 100) * current_audio.duration
     update_progressbar(song_percentage)
 
-    music_pause(pausebtn)
+    current_audio.pause();
+
+
 });
 
 dragging = false;
@@ -184,8 +186,7 @@ dragging = false;
 document.addEventListener("mouseup", (event) => {
     if (dragging) {
         dragging = false;
-        music_pause(pausebtn)
-
+        current_audio.play();
     }
 });
 

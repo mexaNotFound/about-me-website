@@ -403,8 +403,9 @@ main {
     border-radius: 10px;
 }
 
-@media screen and (max-width: 785px) {
+@media screen and (max-width: 1000px) {
     :root {
+    
         --boxwidth: 90vw
     }
 
@@ -454,7 +455,7 @@ main {
     }
 }
 
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 1050px) {
     .allboxescontainer {
         margin-top: 5vh;
         .mainbox {
@@ -464,14 +465,72 @@ main {
             }
             .bio {
                 padding: 10px 15px !important;
-                .pfp {
-                    position: absolute !important;
-                    top: 10px;
-                    left: 10px;
-                    height: 50px !important;
 
+            }
+        }
+    }
+}
+
+@media screen and (max-height: 705px) {
+    .allboxescontainer {
+        margin-top: 2vh;
+        .mainbox {
+            height: calc(var(--boxheight) - 20vh) !important;
+            .music {
+                padding: 5px !important;
+                gap: 5px !important;
+                .currently-playing {
+                    font-size: 14px !important;
+                    .songname {
+                        font-size: 12px !important;
+                    }
+                    .spinning-vinyl {
+                        font-size: 12px !important;
+                    }
+                }
+                .music-controls {
+                    .music-btn {
+                        font-size: 24px !important;
+                        padding: 2px !important;
+                    }
+                }
+                .progressbar {
+                    padding: 10px 0 !important;
+                    .fullline {
+                        height: 7px !important;
+                        .line {
+                            .ball {
+                                height: 7px !important;
+                            }
+                        }
+                    }
+                }
+            }
+            .bio {
+                .pfp {
+                    /* position: absolute !important;
+                    top: 20px;
+                    left: 20px; */
+                    height: 150px !important;
+
+                }
+                padding: 5px 10px !important;
+                h1 {
+                    font-size: 28px !important;
+                }
+                p {
+                    margin-top: 15px !important;
+                    font-size: 18px !important;
+                    width: 90% !important;
+                }
+            }
+            .btn-container {
+                button {
+                    font-size: 20px !important;
+                    height: 60px !important;
                 }
             }
         }
     }
+    
 }
