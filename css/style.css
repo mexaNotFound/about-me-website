@@ -34,7 +34,7 @@ main {
 
 
 .allboxescontainer {
-    margin-top: 15vh;
+    margin-top: 10vh;
     position: relative;
     .mainbox {
         transition: 0.5s ease-in-out;
@@ -392,15 +392,20 @@ main {
 
 
 .creatorcredit {
+    color: var(--color4);
     position: fixed;
-    color: #ffffff;
     bottom: 10px;
     left: 10px;
     cursor: default;
+    user-select: none;
     background-color: var(--color6);
     backdrop-filter: blur(1px);
     padding: 5px;
     border-radius: 10px;
+    a {
+        color: var(--color4);
+        text-decoration: none;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -471,9 +476,9 @@ main {
     }
 }
 
-@media screen and (max-height: 705px) {
+@media screen and (max-height: 870px) {
     .allboxescontainer {
-        margin-top: 2vh;
+        margin-top: 5vh;
         .mainbox {
             height: calc(var(--boxheight) - 20vh) !important;
             .music {
