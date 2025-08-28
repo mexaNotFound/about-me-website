@@ -260,9 +260,11 @@ main {
     .mainbox.hidden {
         transform: translateX(-50vw);
         opacity: 0;
+        pointer-events: none;
     }
     
     .interests, .likes-dislikes, .socials {
+        pointer-events: none;
         opacity: 0;
         transform: translateX(50vw);
         position: absolute;
@@ -351,6 +353,7 @@ main {
     }
 
     .interests.active, .likes-dislikes.active, .socials.active {
+        pointer-events: all;
         transform: translateX(0);
         opacity: 1;
     }
